@@ -1,0 +1,13 @@
+<h2>Messages</h2>
+<ul>
+    <% messages.forEach(message => { %>
+        <li>
+            <strong><%= message.author %>:</strong> <%= message.text %>
+            <% if (user && user.admin) { %> 
+                <form action="/messages/<%= message.id %>/delete" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            <% } %>
+        </li>
+    <% }); %>
+</ul>
